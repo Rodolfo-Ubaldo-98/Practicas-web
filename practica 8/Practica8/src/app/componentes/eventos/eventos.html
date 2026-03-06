@@ -1,0 +1,66 @@
+<div class="container mt-5">
+
+  <div class="card shadow-lg rounded-4">
+    
+    <div class="card-header bg-primary text-white text-center rounded-top-4">
+      <h3 class="mb-0">🎭 Cartelera Cultural</h3>
+    </div>
+
+    <div class="card-body">
+
+      <!-- Si no hay eventos -->
+      <div *ngIf="listaEventos.length === 0" class="alert alert-warning text-center">
+        No hay eventos registrados en la base de datos.
+      </div>
+
+      <!-- Tabla con datos de Mongo -->
+      <div class="table-responsive" *ngIf="listaEventos.length > 0">
+        <table class="table table-hover table-bordered text-center align-middle">
+
+          <thead class="table-dark">
+            <tr>
+              <th>Titulo</th>
+              <th>Fecha</th>
+              <th>Lugar</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let evento of listaEventos">
+              
+              <td class="fw-bold text-start">
+                {{ evento.titulo }}
+              </td>
+
+              <td>
+                {{ evento.fecha }}
+              </td>
+
+              <td>
+                📍 {{ evento.lugar }}
+              </td>
+
+              <td>
+                <!-- Si el precio es mayor a 0 -->
+                <span *ngIf="evento.precio > 0" class="badge bg-success fs-6">
+                  ${{ evento.precio }}
+                </span>
+
+                <!-- Si el evento es gratis -->
+                <span *ngIf="evento.precio == 0" class="badge bg-info fs-6">
+                  Gratis
+                </span>
+              </td>
+
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
