@@ -1,0 +1,22 @@
+<div class="container mt-3">
+  <h2>Agregar Alumno</h2>
+  <form #formAlumno="ngForm" (ngSubmit)="guardarAlumno(formAlumno)">
+    <div class="mb-3 mt-3">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control" ngModel
+             id="nombre" placeholder="Enter Name" name="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="edad">Edad:</label>
+      <input type="number" class="form-control" ngModel
+             id="edad" placeholder="Enter age" name="edad">
+    </div>
+    <div class="mb-3">
+      <label for="carrera">Carrera:</label>
+      <input type="text" class="form-control" ngModel
+             id="carrera" placeholder="Enter career" name="carrera">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a routerLink="/consulta" class="btn btn-secondary ms-2">Ver tabla</a>
+  </form>
+</div>
